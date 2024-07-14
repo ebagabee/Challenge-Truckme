@@ -1,6 +1,7 @@
 <template>
-    <section>
-      <h2>Serviços</h2>
+  <section class="services">
+    <h2>Nossos Serviços</h2>
+    <div class="table-container">
       <table>
         <thead>
           <tr>
@@ -11,33 +12,75 @@
         </thead>
         <tbody>
           <tr>
-            <td>Serviço 1</td>
-            <td>Descrição do Serviço 1</td>
-            <td>R$ 100,00</td>
+            <td>Serviço de Transporte</td>
+            <td>Transporte de carga para todo o Brasil</td>
+            <td>R$ 500,00</td>
           </tr>
           <tr>
-            <td>Serviço 2</td>
-            <td>Descrição do Serviço 2</td>
+            <td>Serviço de Logística</td>
+            <td>Logística integrada para otimização de processos</td>
+            <td>R$ 800,00</td>
+          </tr>
+          <tr>
+            <td>Serviço de Rastreamento</td>
+            <td>Rastreamento em tempo real da carga</td>
+            <td>R$ 300,00</td>
+          </tr>
+          <tr>
+            <td>Serviço de Documentação</td>
+            <td>Emissão de documentos fiscais e contratuais</td>
             <td>R$ 200,00</td>
           </tr>
         </tbody>
       </table>
-    </section>
-  </template>
-  
-  <script setup lang="ts">
-  </script>
-  
-  <style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.services {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 25px auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+td {
+  background-color: #fff;
+  color: #666;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
   }
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  th {
-    background-color: #f2f2f2;
-  }
-  </style>
+}
+</style>
