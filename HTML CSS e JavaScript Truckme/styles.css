@@ -212,7 +212,7 @@
 }
 
 .more-info.show {
-  display: block; 
+  display: block;
 }
 
 .about ul,
@@ -240,4 +240,50 @@
 
 .read-more:hover {
   background-color: #f68d00;
+}
+
+.services {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 25px auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+td {
+  background-color: #fff;
+  color: #666;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
 }

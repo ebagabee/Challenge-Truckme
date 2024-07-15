@@ -34,3 +34,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Dados dos serviços
+  const services = [
+    { name: "Serviço de Transporte", description: "Transporte de carga para todo o Brasil", price: "R$ 500,00" },
+    { name: "Serviço de Logística", description: "Logística integrada para otimização de processos", price: "R$ 800,00" },
+    { name: "Serviço de Rastreamento", description: "Rastreamento em tempo real da carga", price: "R$ 300,00" },
+    { name: "Serviço de Documentação", description: "Emissão de documentos fiscais e contratuais", price: "R$ 200,00" }
+  ];
+
+  // Selecionando o tbody da tabela
+  const tbody = document.getElementById('serviceTable');
+
+  // Iterando sobre os dados para criar as linhas da tabela
+  services.forEach(service => {
+    const row = document.createElement('tr');
+
+    // Criando as células para cada coluna
+    const nameCell = document.createElement('td');
+    nameCell.textContent = service.name;
+
+    const descCell = document.createElement('td');
+    descCell.textContent = service.description;
+
+    const priceCell = document.createElement('td');
+    priceCell.textContent = service.price;
+
+    // Adicionando as células à linha
+    row.appendChild(nameCell);
+    row.appendChild(descCell);
+    row.appendChild(priceCell);
+
+    // Adicionando a linha ao tbody
+    tbody.appendChild(row);
+  });
+});
