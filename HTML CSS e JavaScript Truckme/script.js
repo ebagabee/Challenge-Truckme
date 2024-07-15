@@ -132,3 +132,30 @@ document.addEventListener('DOMContentLoaded', function () {
     formError.textContent = '';
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const images = [
+    'assets/image1.jpg',
+    'assets/image2.jpg',
+    'assets/image3.jpg'
+  ];
+  let currentImageIndex = 0;
+
+  const galleryImage = document.getElementById('galleryImage');
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
+
+  prevButton.addEventListener('click', function () {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateGallery();
+  });
+
+  nextButton.addEventListener('click', function () {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateGallery();
+  });
+
+  function updateGallery() {
+    galleryImage.src = images[currentImageIndex];
+  }
+});

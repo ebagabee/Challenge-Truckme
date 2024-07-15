@@ -389,3 +389,52 @@ button {
 button:hover {
   background-color: #e68a00;
 }
+
+.gallery-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.gallery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-image {
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 15px;
+}
+
+.gallery-button {
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.gallery-button:hover {
+  background-color: #e68a00;
+}
