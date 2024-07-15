@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Dados dos serviços
   const services = [
     { name: "Serviço de Transporte", description: "Transporte de carga para todo o Brasil", price: "R$ 500,00" },
     { name: "Serviço de Logística", description: "Logística integrada para otimização de processos", price: "R$ 800,00" },
@@ -44,14 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: "Serviço de Documentação", description: "Emissão de documentos fiscais e contratuais", price: "R$ 200,00" }
   ];
 
-  // Selecionando o tbody da tabela
   const tbody = document.getElementById('serviceTable');
 
-  // Iterando sobre os dados para criar as linhas da tabela
   services.forEach(service => {
     const row = document.createElement('tr');
 
-    // Criando as células para cada coluna
     const nameCell = document.createElement('td');
     nameCell.textContent = service.name;
 
@@ -61,12 +57,78 @@ document.addEventListener('DOMContentLoaded', function () {
     const priceCell = document.createElement('td');
     priceCell.textContent = service.price;
 
-    // Adicionando as células à linha
     row.appendChild(nameCell);
     row.appendChild(descCell);
     row.appendChild(priceCell);
 
-    // Adicionando a linha ao tbody
     tbody.appendChild(row);
   });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+  const formError = document.getElementById('formError');
+  const modal = document.getElementById('modal');
+  const modalMessage = document.getElementById('modalMessage');
+  const closeModalButton = document.getElementById('closeModal');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    resetErrors();
+
+    if (validateForm()) {
+      setTimeout(() => {
+        modalMessage.textContent = 'O formulário foi enviado com sucesso!';
+        modal.style.display = 'flex';
+        form.reset();
+      }, 1000);
+    }
+  });
+
+  closeModalButton.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
+
+  function validateForm() {
+    let valid = true;
+
+    if (!nameInput.value.trim()) {
+      nameError.textContent = 'Por favor, preencha seu nome.';
+      valid = false;
+    }
+    if (!emailInput.value.trim()) {
+      emailError.textContent = 'Por favor, preencha seu e-mail.';
+      valid = false;
+    } else {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(emailInput.value)) {
+        emailError.textContent = 'Por favor, insira um e-mail válido.';
+        valid = false;
+      }
+    }
+    if (!messageInput.value.trim()) {
+      messageError.textContent = 'Por favor, escreva uma mensagem.';
+      valid = false;
+    }
+
+    if (!valid) {
+      formError.textContent = 'Por favor, corrija os erros no formulário.';
+    }
+
+    return valid;
+  }
+
+  function resetErrors() {
+    nameError.textContent = '';
+    emailError.textContent = '';
+    messageError.textContent = '';
+    formError.textContent = '';
+  }
 });
